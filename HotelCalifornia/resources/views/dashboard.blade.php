@@ -148,8 +148,8 @@
                         <div class="icon">
                             <i class="zmdi zmdi-hotel"></i></a>
                         </div>
-                        @endif
                     </div>
+                 @endif
                 </div>
                 <div class="col-md-6 col-lg-4">
                 @if(Auth::user()->id == 1 )
