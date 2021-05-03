@@ -135,7 +135,7 @@
 <!-- END BREADCRUMB-->
 <section class="au-breadcrumb m-t-75">
 </section>
-            <!-- STATISTIC-->
+             <!-- STATISTIC-->
 <section class="statistic">
     <div class="section__content section__content--p30">
         <div class="container-fluid">
@@ -149,7 +149,7 @@
                             <i class="zmdi zmdi-hotel"></i></a>
                         </div>
                     </div>
-                 @endif
+                @endif
                 </div>
                 <div class="col-md-6 col-lg-4">
                 @if(Auth::user()->id == 1 )
@@ -160,7 +160,7 @@
                             <i class="fa fa-user"></i></a>
                         </div>
                     </div>
-                    @endif
+                @endif
                 </div>
                 <div class="col-md-6 col-lg-4">
                 @if(Auth::user()->id <= 2 )
@@ -178,7 +178,6 @@
     </div>
 </section>
             <!-- END STATISTIC-->
-
         
 </body>
 
