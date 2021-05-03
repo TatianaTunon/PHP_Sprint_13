@@ -1,22 +1,23 @@
-@extends('layouts.layout')
 
-@section('title', 'HotelCalifornia')
+@extends('layouts.partials.head')
+@extends('layouts.partials.footer')
+@include('layouts.partials.sidebar')
 
-<!--@section('sidebar')
-    @parent
-    <p>This is appended to the master sidebar.</p>
-@endsection -->
 
-@section ('content')
+
+
+
 <!DOCTYPE html>
 <html>
-
- <div class="row">
-    <div class="col-md-5 m-4">
+  
+<div class="row">
+  <div class="row justify-content-center">
+    <div class="col-md-8 m-12">
     @if(Auth::user()->id == 1 )
-        <a href="{{ route('empleats.create') }}" class="btn btn-lg btn-primary">Nueva empleado</a>
+    <a href="{{ route('empleats.create') }}" class="btn btn-lg btn-primary">Nuevo empleado</a>
     @endif
     </div>
+  </div>
 </div>
 
 <!-- BOTÓN SEARCH -->
@@ -33,18 +34,23 @@
 </form>
 </div>
 
-<table class="table table-responsive table-striped text-center">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Apellido</th>
-      <th scope="col">DNI</th>
-      <th scope="col">Teléfono</th>
-      <th scope="col">Departamento</th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
+  
+
+<div class="row">
+  <div class="col-lg-10 offset-lg-1">
+      <div class="table-responsive table--no-card m-b-40">
+          <table class="table table-borderless table-striped table-earning">
+            <thead>
+              <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">DNI</th>
+              <th scope="col">Teléfono</th>
+              <th scope="col">Departamento</th>
+              <th scope="col"></th>
+              </tr>
+            </thead>
 
   <tbody>
     @foreach($empleats as $empleat)
@@ -58,6 +64,7 @@
       <td>{{ $empleat->departament->name}}</td>
      
       <td>
+        
       <div class="btn-group">
       @can('update', $empleat) 
         <a href="{{route('empleats.edit', $empleat->id)}}" class="btn btn-warning ">Editar</a>
@@ -76,6 +83,9 @@
     @endforeach
   </tbody>
 </table>
+</div>
+  </div>
+  
 
 <!--Volver a la página inicial -->
 <div class="container">
@@ -87,4 +97,3 @@
 </div>
 </html>
 
-@endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\reservas;
+use App\Models\empleats;
 use App\Http\Requests\reservasRequest;
 
 class ReservasHotelController extends Controller
@@ -15,7 +16,8 @@ class ReservasHotelController extends Controller
     }
 
     public function create() { 
-        return view('reservas/create');
+        $empleats = empleats::all(); 
+        return view('reservas/create', compact('empleats'));
      }
 
      public function store(reservasRequest $request) { 
@@ -29,7 +31,8 @@ class ReservasHotelController extends Controller
     }
 
     public function edit(reservas $reserva) { 
-        return view('reservas/edit', compact('reserva'));
+        $empleats = empleats::all(); 
+        return view('reservas/edit', compact('reserva', 'empleats'));
     }
 
      public function update(Request $request, reservas $reserva) { 
@@ -49,5 +52,4 @@ class ReservasHotelController extends Controller
         $reserva->delete();
         return redirect()->route('reservas.index');
     }
-
 }

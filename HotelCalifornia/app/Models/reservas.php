@@ -14,4 +14,5 @@ class reservas extends Model
     public function empleat(){
         return $this->belongsTo(empleats::class,'empleat_id');
     } 
+
 }

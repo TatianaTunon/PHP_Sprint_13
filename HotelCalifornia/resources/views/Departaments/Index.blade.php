@@ -1,26 +1,30 @@
+@extends('layouts.partials.head')
+@extends('layouts.partials.footer')
+@include('layouts.partials.sidebar')
 
-@extends('layouts.layout')
 
-@section('title', 'HotelCalifornia')
-
-@section ('content')
 <!DOCTYPE html>
 <html>
 <div class="row">
-    <div class="col-md-5 m-4">
+<div class="row justify-content-center">
+<div class="col-md-3 m-12">
     @if(Auth::user()->id <= 2 )
         <a href="{{ route('departaments.create') }}" class="btn btn-lg btn-primary">Nuevo departamento</a>
     @endif
     </div>
 </div>
-<table class="table table-responsive table-striped text-center">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
+
+<div class="row">
+<div class="col-lg-12 offset-lg-2">
+      <div class="table-responsive table--no-card m-b-40">
+          <table class="table table-borderless table-striped table-earning">
+            <thead>
+              <tr>
+              <th scope="col">#</th>
       <th scope="col">name</th>
         <th scope="col"></th>
-    </tr>
-  </thead>
+              </tr>
+            </thead>
   
   <tbody>
     @foreach($departaments as $departament)
@@ -47,15 +51,16 @@
     @endforeach
   </tbody>
 </table>
+</div>
+  </div>
 
 <!--Volver a la página inicial -->
 <div class="container">
 <div class="row justify-content-center">
-    <div class="col-md-2 m-4">
+    <div class="col-md-1 m-4">
     <a href="{{ url('/') }}" class="btn btn-lg btn-secondary">Volver a home</a>
     </div>
 </div>
 </div>
 </html>
 
-@endsection

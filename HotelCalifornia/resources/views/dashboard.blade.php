@@ -2,7 +2,7 @@
 
 @extends('layouts.partials.head')
 @extends('layouts.partials.footer')
-@yield('layouts.partials.sidebar')
+
 <body class="animsition">
     <div class="page-wrapper">
         <!-- MENU SIDEBAR-->
@@ -139,8 +139,9 @@
 <section class="statistic">
     <div class="section__content section__content--p30">
         <div class="container-fluid">
-            <div class="row">
+            <div class="row"> 
                 <div class="col-md-6 col-lg-4">
+                @if(Auth::user()->id <= 2 )
                     <div class="statistic__item">
                        <a href="{{ route('reservas.create') }}">
                         <h2 class="text">Nueva Reserva</h2>
@@ -148,8 +149,10 @@
                             <i class="zmdi zmdi-hotel"></i></a>
                         </div>
                     </div>
+                @endif
                 </div>
                 <div class="col-md-6 col-lg-4">
+                @if(Auth::user()->id == 1 )
                     <div class="statistic__item">
                     <a href="{{ route('empleats.create') }}">
                         <h2 class="text">Nuevo Empleado</h2>
@@ -157,8 +160,10 @@
                             <i class="fa fa-user"></i></a>
                         </div>
                     </div>
+                @endif
                 </div>
                 <div class="col-md-6 col-lg-4">
+                @if(Auth::user()->id <= 2 )
                     <div class="statistic__item">
                     <a href="{{ route('departaments.create') }}">
                         <h2 class="text">Nuevo Departamento</h2>
@@ -166,6 +171,7 @@
                             <i class="fas fa-briefcase"></i></a>
                         </div>
                     </div>
+                @endif
                 </div>
             </div>
         </div>

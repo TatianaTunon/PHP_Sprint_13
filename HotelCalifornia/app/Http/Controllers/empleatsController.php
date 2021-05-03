@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\empleats;
 use App\Http\Requests\empleatsRequest;
+use App\Models\departaments;
+
 
 class empleatsController extends Controller
 {
@@ -20,7 +22,8 @@ class empleatsController extends Controller
     }
 
     public function create() { 
-        return view('empleats/create');
+        $departaments = departaments::all(); 
+        return view('empleats/create', compact('departaments'));
      }
 
      public function store(empleatsRequest $request) { 
@@ -34,7 +37,9 @@ class empleatsController extends Controller
     }
 
     public function edit(empleats $empleat) { 
-        return view('empleats/edit', compact('empleat'));
+        $departaments = departaments::all(); 
+        return view('empleats/edit', compact('empleat', 'departaments'));
+
     }
     
      public function update(Request $request, empleats $empleat) { 
@@ -53,4 +58,5 @@ class empleatsController extends Controller
         $empleat->delete();
         return redirect()->route('empleats.index');
     }
+
 }
